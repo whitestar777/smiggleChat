@@ -1,0 +1,25 @@
+<div id="messanger" class="large-4 columns hide">
+    <div class="large-12 columns">
+        <a class="red" @click="closeMessanger">x</a>
+    </div>
+    <div class="large-6 columns">
+        {{openUser.email}}
+    </div>
+    <div class="large-6 columns text-right">
+        me
+    </div>
+    <hr>
+    <div class="large-12 columns"
+         v-for="message in openUser.allMessages | orderBy 'id'">
+        <div class=" message" :class="[message.color]">{{message.content}}</div>
+    </div>
+    <div class="large-12 columns">
+        <div class="input-group-field">
+            <input type="text" id="newMessage" name="newMessage" class="input-group-field"
+                   v-model="newMessage">
+        </div>
+        <div class="input-group-button">
+            <button class="button" @click="sendMessage">send</button>
+        </div>
+    </div>
+</div>

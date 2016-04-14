@@ -1,0 +1,8 @@
+    <div id="contacts" class="large-3 medium-4 small-6 column" v-for="user in allUsers">
+        <div class="contactWrapper">
+            <a v-on:cLick="openMessager(user)">{{user.email}}</a> <span class="messageCount" v-show="user.pending_messages.length !== 0">{{user.pending_messages.length}}</span>
+            <br>
+            <a v-on:cLick="openMessager(user)" class="button" v-show="user.allMessages.length === 0">chat</a>
+            <a v-on:cLick="openMessager(user)" class="button success" v-show="user.allMessages.length >= 1">continue</a>
+        </div>
+    </div>
